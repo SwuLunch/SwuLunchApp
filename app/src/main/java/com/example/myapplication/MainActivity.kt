@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btnLogin)
         btnUser = findViewById(R.id.btnUser)
         myHelper = myDBHelper(this)
+        //야호
 
 
         btnLogin.setOnClickListener {
