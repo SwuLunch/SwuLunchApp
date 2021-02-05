@@ -34,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
 
         btnHan = findViewById(R.id.btnHan)
 
+
     }
 
 }
