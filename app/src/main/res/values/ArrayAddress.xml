@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <string-array name="where">
+        <item>50주년관</item>
+        <item>누리관</item>
+        <item>인문사회관</item>
+        <item>제1과학관</item>
+        <item>제2과학관</item>
+        <item>샬롬하우스</item>
+        <item>국제생활관</item>
+        <item>교외</item>
+    </string-array>
+
+
+</resources>

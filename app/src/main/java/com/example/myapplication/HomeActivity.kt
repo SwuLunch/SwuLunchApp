@@ -1,38 +1,55 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.fragment.app.*
 
 class HomeActivity : AppCompatActivity() {
 
-    lateinit var btnHan : Button
+    lateinit var btnHan : ImageButton
+    lateinit var Homebtn : ImageButton
+    lateinit var Commubtn : ImageButton
+    lateinit var Mypagebtn : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // 상단바 없애기
+        supportActionBar?.hide()
+        //setTitle("한식양식중식일식")
 
-        var nickname = intent.getStringExtra("nickname")
+        btnHan = findViewById(R.id.Hansikbtn)
+        Homebtn = findViewById(R.id.homeBtn)
+        Commubtn = findViewById(R.id.communityBtn)
+        Mypagebtn = findViewById(R.id.mypageBtn)
 
 
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        // 한식 버튼
+        btnHan.setOnClickListener {
+            var intent = Intent(this, KoreanFoodActivity::class.java)
+            startActivity(intent)
+        }
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        // 홈버튼
+        Homebtn.setOnClickListener {
+            var intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
-        btnHan = findViewById(R.id.btnHan)
+        // 커뮤니티 버튼
+        Commubtn.setOnClickListener {
+            var intent = Intent(this, Board_Main::class.java)
+            startActivity(intent)
+        }
+
+        // 마이페이지 버튼
+        Mypagebtn.setOnClickListener {
+            var intent = Intent(this, MyPageActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

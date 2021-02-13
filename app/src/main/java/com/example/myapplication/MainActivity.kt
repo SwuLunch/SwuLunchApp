@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -31,13 +32,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_main)
 
+        actionBar?.hide()
+        supportActionBar?.hide()
+
         //로그인 화면
         edtId = findViewById(R.id.edtID)
         edtPwd = findViewById(R.id.edtPwd)
         btnLogin = findViewById(R.id.btnLogin)
         btnUser = findViewById(R.id.btnUser)
         myHelper = myDBHelper(this)
-        //야호
 
 
         btnLogin.setOnClickListener {
@@ -53,7 +56,9 @@ class MainActivity : AppCompatActivity() {
                 if(id == cursor.getString(0)
                     && pwd == cursor.getString(1)) {
                     var intent = Intent(this, HomeActivity::class.java)
-                    intent.putExtra("nickname", cursor.getString(2).toString())
+                    var intentreview = Intent(this, AdapterReview::class.java)
+                    intentreview.putExtra("nickname", cursor.getString(2).toString())
+
                     startActivity(intent)
                     login = true
                     break
@@ -71,6 +76,19 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+
+
+        /*
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(setOf(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController) */
     }
 
     inner class myDBHelper(context: Context) : SQLiteOpenHelper(context, "SWU", null, 1) {

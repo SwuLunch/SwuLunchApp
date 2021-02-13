@@ -22,6 +22,8 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.user_regis)
+        actionBar?.hide()
+        supportActionBar?.hide()
 
         //회원가입 화면
         edtId2 = findViewById(R.id.edtID2)
@@ -43,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
 
     }
 
-    inner class myDBHelper(context: Context) : SQLiteOpenHelper(context, "SWU", null, 1) {
+    class myDBHelper(context: Context) : SQLiteOpenHelper(context, "SWU", null, 1) {
         override fun onCreate(db: SQLiteDatabase?) {
             db!!.execSQL("CREATE TABLE USERS ( ID CHAR(20) PRIMARY KEY, PWD CHAR(20), NICKNAME CHAR(10));")
         }
