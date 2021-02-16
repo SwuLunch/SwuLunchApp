@@ -43,12 +43,13 @@ class AddReview : AppCompatActivity() {
     lateinit var saveBtn: FloatingActionButton
     lateinit var contentEt : EditText
     lateinit var ratingBar: RatingBar
-    lateinit var nickname : String
+
 
     //variables that will contain data to save in database
     private var imageUri: Uri? = null
     private var contextt: String? = ""
     private var ratingvalues: String? = ""
+    private var nickname : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class AddReview : AppCompatActivity() {
 
         dbswu = DBHelper.readableDatabase
         var cursor : Cursor
+
 
         cursor = dbswu.rawQuery("SELECT * FROM USERS;", null)
         while (cursor.moveToNext()){

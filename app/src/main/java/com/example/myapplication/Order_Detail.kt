@@ -35,7 +35,7 @@ class Order_Detail : AppCompatActivity(), OrderDialogInterface {
             receiveMsg()
 
 
-        var sendtext = "주문이 들어왔습니다."
+        var sendtext = "[ SWU-LUNCH ] \n" + "주문이 들어왔습니다. \n" + "앱에서 확인해주세요 !\n"
 
 
 
@@ -48,7 +48,7 @@ class Order_Detail : AppCompatActivity(), OrderDialogInterface {
             var sms = SmsManager.getDefault()
             val orderDialog = OrderDialog(this, this)
             orderDialog.show()
-            sms.sendTextMessage("486162215","ME",sendtext, null,null)
+            sms.sendTextMessage("5468725375","ME",sendtext, null,null)
             //var intent = Intent(this, OrderSucces::class.java)
         }
     }

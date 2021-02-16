@@ -18,7 +18,6 @@
         <activity android:name=".Order_Detail"
             android:parentActivityName=".StoreActivity">
         </activity>
-        <activity android:name=".OrderSucces"
             android:parentActivityName=".Order_Detail"/>
 
         <activity
